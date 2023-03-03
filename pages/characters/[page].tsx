@@ -21,6 +21,8 @@ const Characters = ({ characters, currentPage }: Props) => {
     setPage(page - 1);
   };
 
+  const isNextDisabled = characters.length < 25;
+
   return (
     <Layout title="Characters">
       <h1>Characters List</h1>
@@ -31,7 +33,7 @@ const Characters = ({ characters, currentPage }: Props) => {
             <Link href={`/characters/${page - 1}`}>Previous</Link>
           </button>
         )}
-        <button type="button" onClick={handleNextPage}>
+        <button type="button" onClick={handleNextPage} disabled={isNextDisabled}>
           <Link href={`/characters/${page + 1}`}>Next</Link>
         </button>
       </div>
